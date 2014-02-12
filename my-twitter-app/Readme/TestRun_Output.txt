@@ -1,0 +1,23 @@
+Admins-MacBook-Pro:MyTwitter Giri$ java -classpath my-twitter-app-0.0.1-SNAPSHOT.jar:cqengine-1.0.3.jar:commons-lang3-3.1.jar com.giri.myprojects.twitter.server.MyTweetServer
+>Alice -> I love the weather today
+>Bob -> Oh, we lost!
+>Bob -> at least it's sunny
+>Alice
+I love the weather today (21 Seconds ago)
+>Bob
+at least it's sunny (6 Seconds ago)
+Oh, we lost! (16 Seconds ago)
+>Charlie -> I'm in New York today! Anyone wants to have a coffee?
+>Charlie follows Alice
+>Charlie wall 
+Charlie - I'm in New York today! Anyone wants to have a coffee? (15 Seconds ago)
+Alice - I love the weather today (53 Seconds ago)
+>Charlie follows Bob
+>Charlie wall 
+Charlie - I'm in New York today! Anyone wants to have a coffee? (38 Seconds ago)
+Bob - at least it's sunny (56 Seconds ago)
+Bob - Oh, we lost! (6 Seconds ago)
+Alice - I love the weather today (15 Seconds ago)
+>quit
+GoodBye
+Admins-MacBook-Pro:MyTwitter Giri$ 

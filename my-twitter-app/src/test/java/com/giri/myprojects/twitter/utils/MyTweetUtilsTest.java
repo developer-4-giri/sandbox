@@ -58,4 +58,20 @@ public class MyTweetUtilsTest {
 		
 	}
 
+	@Test
+	public void testReadWallForSingleUser() {
+		String randomUser_1 = anyLetterString();
+		String randomMessage_1 = anyLetterString();
+		String randomMessage_2 = anyLetterString();
+
+		MyTweetUtils.postComment(randomUser_1,randomMessage_1);
+		MyTweetUtils.postComment(randomUser_1,randomMessage_2);
+		
+		MyTweetUtils.readWall(randomUser_1);
+		
+		assertThat(outConsoleContent.toString(), containsString(" Seconds ago"));
+		assertThat(outConsoleContent.toString(), containsString(randomUser_1));
+		assertThat(outConsoleContent.toString(), containsString(randomMessage_2));
+		
+	}
 }

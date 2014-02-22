@@ -54,6 +54,7 @@ public class MyTweetUtils {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
 	public static void readWall(String userName){
 		
 		MyUser thisUser = currentUsers.get(userName) != null ? currentUsers.get(userName) : new MyUser(userName);
@@ -63,8 +64,12 @@ public class MyTweetUtils {
 		
 		Collection<Query<MyPost>> queryCollection = MyCollectionQueryUtils.buildEqualsQueryFromCollection(usersToBeSearchedForPosts);
 
-		Query<MyPost> queryForAllPosts =  or(queryCollection);
-
+		Query<MyPost> queryForAllPosts =  null;
+		if(usersToBeSearchedForPosts.size() > 1)
+			queryForAllPosts =  or(queryCollection);
+		else
+			queryForAllPosts =  (Query<MyPost>) queryCollection.toArray()[0];
+		
 		for (MyPost post : indexedPosts.retrieve(queryForAllPosts, queryOptions(orderByDescending(MyPost.POST_TIME)))) {
 			
 			System.out.println(post.getPostUser()+ " - "+post.getMessage() + " " + MyTimeUtils.findTimeDifference(post.getPostTime()));
